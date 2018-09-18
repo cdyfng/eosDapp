@@ -1,0 +1,240 @@
+(cryptoenv) fongdeMBP:theetherlove fong$ eosiocpp -g theetherlove.abi theetherlove.cpp
+2018-09-18T04:40:09.209 thread-0   abi_generator.hpp:68          ricardian_contracts  ] Warning, no ricardian clauses found for theetherlove
+
+2018-09-18T04:40:09.209 thread-0   abi_generator.hpp:75          ricardian_contracts  ] Warning, no ricardian contract found for init
+
+2018-09-18T04:40:09.209 thread-0   abi_generator.hpp:75          ricardian_contracts  ] Warning, no ricardian contract found for scored
+
+2018-09-18T04:40:09.209 thread-0   abi_generator.hpp:75          ricardian_contracts  ] Warning, no ricardian contract found for remove
+
+
+Generated theetherlove.abi ...
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' set contract theetherlove ../theetherlove  -p theetherlove
+Reading WASM from ../theetherlove/theetherlove.wasm...
+Publishing contract...
+Error 3120003: Locked wallet
+Ensure that your wallet is unlocked before using it!
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos wallet unlock -n testnetwallet
+password: Unlocked: testnetwallet
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get account theetherlove
+permissions: 
+     owner     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+        active     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+memory: 
+     quota:     197.1 KiB    used:     139.9 KiB  
+
+net bandwidth: 
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             6.398 KiB  
+     available:        199.5 KiB  
+     limit:            205.9 KiB  
+
+cpu bandwidth:
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             5.664 ms   
+     available:        34.48 ms   
+     limit:            40.15 ms   
+
+EOS balances: 
+     liquid:          480.0000 EOS
+     staked:            0.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           480.0000 EOS
+
+
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' set contract theetherlove ../theetherlove  -p theetherlove
+Reading WASM from ../theetherlove/theetherlove.wasm...
+Publishing contract...
+executed transaction: b8425baeb228622512cfa9ae7ac1cc0cea96d63c3e6fc1286dc65a7130d0ec96  6384 bytes  3655 us
+#         eosio <= eosio::setcode               {"account":"theetherlove","vmtype":0,"vmversion":0,"code":"0061736d010000000185011660027f7e0060047f7...
+#         eosio <= eosio::setabi                {"account":"theetherlove","abi":"0e656f73696f3a3a6162692f312e30000404557365720004056b657969640675696...
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get account theetherlove
+permissions: 
+     owner     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+        active     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+memory: 
+     quota:     197.1 KiB    used:       140 KiB  
+
+net bandwidth: 
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             12.29 KiB  
+     available:        193.7 KiB  
+     limit:            205.9 KiB  
+
+cpu bandwidth:
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             6.999 ms   
+     available:        33.15 ms   
+     limit:            40.15 ms   
+
+EOS balances: 
+     liquid:          480.0000 EOS
+     staked:            0.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           480.0000 EOS
+
+
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  init '['theetherlove']' -p theetherlove -ptheetherlove
+executed transaction: 694ffe7256985ab3dc2a437ef413a7ab8811006aad2c1c225778fa55d5213a0b  120 bytes  908 us
+#  theetherlove <= theetherlove::init           {"app_owner":"theetherlove"}
+>> App created with account: theetherlove
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove users
+ERROR: RequiredError: table
+Retrieve the contents of a database table
+Usage: cleos get table [OPTIONS] contract scope table
+
+Positionals:
+  contract TEXT               The contract who owns the table (required)
+  scope TEXT                  The scope within the contract in which the table is found (required)
+  table TEXT                  The name of the table as specified by the contract abi (required)
+
+Options:
+  -b,--binary UINT            Return the value as BINARY rather than using abi to interpret as JSON
+  -l,--limit UINT             The maximum number of rows to return
+  -k,--key TEXT               Deprecated
+  -L,--lower TEXT             JSON representation of lower bound value of key, defaults to first
+  -U,--upper TEXT             JSON representation of upper bound value value of key, defaults to last
+  --index TEXT                Index number, 1 - primary (first), 2 - secondary index (in order defined by multi_index), 3 - third index, etc.
+				Number or name of index can be specified, e.g. 'secondary' or '2'.
+  --key-type TEXT             The key type of --index, primary only supports (i64), all others support (i64, i128, i256, float64, float128, ripemd160, sha256).
+				Special type 'name' indicates an account name.
+  --encode-type TEXT          The encoding type of key_type (i64 , i128 , float64, float128) only support decimal encoding e.g. 'dec'i256 - supports both 'dec' and 'hex', ripemd160 and sha256 is 'hex' only
+
+
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove theetherlove users
+{
+  "rows": [],
+  "more": false
+}
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  scored '['madilyn', 'theetherlove', 100]'
+Error 3040003: Transaction should have at least one required authority
+Error Details:
+transaction must have at least one authorization
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  scored '['madilyn', 'theetherlove', 100]' -p theetherlove
+executed transaction: 47f066ced4ca4aa53114bb356aa646c0bc415e86949e61b5b222427a865c2a31  120 bytes  1017 us
+#  theetherlove <= theetherlove::scored         {"username":"madilyn","account":"theetherlove","new_score":100}
+>> Creating new user madilyn
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove theetherlove users
+{
+  "rows": [{
+      "keyid": 885102747,
+      "username": "madilyn",
+      "account": "theetherlove",
+      "score": 100
+    }
+  ],
+  "more": false
+}
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  scored '['stephen', 'abitcoinlove', 80]' -p abitcoinlove
+Error 3090004: Missing required authority
+Ensure that you have the related authority inside your transaction!;
+If you are currently using 'cleos push action' command, try to add the relevant authority using -p option.
+Error Details:
+missing authority of theetherlove
+pending console output: 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  scored '['stephen', 'abitcoinlove', 80]' -p abitcoinlove -p theetherlove
+executed transaction: 63a35686f499ee1e97f151dc2eab4741558b4fd679268eaa8957160d66d4df1d  152 bytes  1501 us
+#  theetherlove <= theetherlove::scored         {"username":"stephen","account":"abitcoinlove","new_score":80}
+>> Creating new user stephen
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove theetherlove users
+{
+  "rows": [{
+      "keyid": 885102747,
+      "username": "madilyn",
+      "account": "theetherlove",
+      "score": 100
+    },{
+      "keyid": 3395570413,
+      "username": "stephen",
+      "account": "abitcoinlove",
+      "score": 80
+    }
+  ],
+  "more": false
+}
+
+
+
+
+}
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  remove '['stephen', 'abitcoinlove', 90]'  -p theetherlove
+Error 3090004: Missing required authority
+Ensure that you have the related authority inside your transaction!;
+If you are currently using 'cleos push action' command, try to add the relevant authority using -p option.
+Error Details:
+missing authority of abitcoinlove
+pending console output: 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  remove '['stephen', 'abitcoinlove', 90]'  -p theetherlove -p abitcoinlove
+executed transaction: 20635b62a7f3d9180d8adada5fa1a80b055a3896c70b2ce9c0dc183c221c93b1  144 bytes  1166 us
+#  theetherlove <= theetherlove::remove         {"username":"stephen","account":"abitcoinlove"}
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove theetherlove users
+{
+  "rows": [{
+      "keyid": 885102747,
+      "username": "madilyn",
+      "account": "theetherlove",
+      "score": 100
+    }
+  ],
+  "more": false
+}
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get account theetherlove
+permissions: 
+     owner     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+        active     1:    1 EOS6C7NnqegyXDxfhitEXXpYsQ78z28MnV3sFmnU2WTfBUg6bKvy4
+memory: 
+     quota:     197.1 KiB    used:     140.4 KiB  
+
+net bandwidth: 
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             12.85 KiB  
+     available:        193.1 KiB  
+     limit:            205.9 KiB  
+
+cpu bandwidth:
+     delegated:       1.1000 EOS           (total staked delegated to account from others)
+     used:             12.68 ms   
+     available:        27.46 ms   
+     limit:            40.15 ms   
+
+EOS balances: 
+     liquid:          480.0000 EOS
+     staked:            0.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           480.0000 EOS
+
+
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action theetherlove  scored '['stephen', 'abitcoinlove', 95]' -p abitcoinlove -p theetherlove
+
+executed transaction: 218f619274f2cf4982f07d76586102754be5c53744a9656527d5de3456c8e6cf  152 bytes  1410 us
+#  theetherlove <= theetherlove::scored         {"username":"stephen","account":"abitcoinlove","new_score":95}
+>> Creating new user stephen
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+(cryptoenv) fongdeMBP:theetherlove fong$ 
+(cryptoenv) fongdeMBP:theetherlove fong$ cleos -u 'http://jungle.cryptolions.io:18888' get table theetherlove theetherlove users
+{
+  "rows": [{
+      "keyid": 885102747,
+      "username": "madilyn",
+      "account": "theetherlove",
+      "score": 100
+    },{
+      "keyid": 3395570413,
+      "username": "stephen",
+      "account": "abitcoinlove",
+      "score": 95
+    }
+  ],
+  "more": false
+}
+(cryptoenv) fongdeMBP:theetherlove fong$ 
