@@ -1,0 +1,141 @@
+2018-09-17
+cleos -u 'http://jungle.cryptolions.io:18888' set contract abitcoinlove ../newapp1 -p abitcoinlove@active
+
+memory: 
+     quota:     429.3 KiB    used:     149.5 KiB  
+
+net bandwidth: 
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             21.12 KiB  
+     available:        18.27 MiB  
+     limit:            18.29 MiB  
+
+cpu bandwidth:
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             13.77 ms   
+     available:        3.637 sec  
+     limit:            3.651 sec  
+
+EOS balances: 
+     liquid:          477.8000 EOS
+     staked:          200.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           677.8000 EOS
+
+
+fongdeMBP:newapp1 fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action abitcoinlove create '['abitcoinlove', 'stephen', 'male', 29]'  -p abitcoinlove
+executed transaction: 65660d5a7b15460aab5e9b5a9988ff48eed948cdee4701dd04e1381f6e046987  120 bytes  1746 us
+#  abitcoinlove <= abitcoinlove::create         {"account":"abitcoinlove","username":"stephen","bio":"male","age":29}
+>> abitcoinlove profile created
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+fongdeMBP:newapp1 fong$ 
+
+fongdeMBP:newapp1 fong$ cleos -u 'http://jungle.cryptolions.io:18888'  get account abitcoinlove
+permissions: 
+     owner     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+        active     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+memory: 
+     quota:     429.3 KiB    used:     149.9 KiB  
+
+net bandwidth: 
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             21.07 KiB  
+     available:        18.27 MiB  
+     limit:            18.29 MiB  
+
+cpu bandwidth:
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             14.86 ms   
+     available:        3.636 sec  
+     limit:            3.651 sec  
+
+EOS balances: 
+     liquid:          477.8000 EOS
+     staked:          200.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           677.8000 EOS
+
+producers:     <not voted>
+
+
+fongdeMBP:newapp1 fong$ cleos -u 'http://jungle.cryptolions.io:18888' push action abitcoinlove create '['theetherlove', 'malidyn', 'female', 39]'  -p theetherlove
+executed transaction: adac8adcbe16b6b4dcb8b49c7e0aa9a8100aeabbec6422fff706707d22fe592c  120 bytes  894 us
+#  abitcoinlove <= abitcoinlove::create         {"account":"theetherlove","username":"malidyn","bio":"female","age":39}
+>> theetherlove profile created
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+fongdeMBP:newapp1 fong$ cleos -u 'http://jungle.cryptolions.io:18888'  get account abitcoinlove
+
+permissions: 
+     owner     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+        active     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+memory: 
+     quota:     429.3 KiB    used:     149.9 KiB  
+
+net bandwidth: 
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             21.07 KiB  
+     available:        18.27 MiB  
+     limit:            18.29 MiB  
+
+cpu bandwidth:
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             14.86 ms   
+     available:        3.636 sec  
+     limit:            3.651 sec  
+
+EOS balances: 
+     liquid:          477.8000 EOS
+     staked:          200.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           677.8000 EOS
+
+producers:     <not voted>
+
+fongdeMBP:newapp1 fong$  cleos -u 'http://jungle.cryptolions.io:18888' push action abitcoinlove get '['abitcoinlove', 'theetherlove']' -p abitcoinlove
+executed transaction: 101965b26030d586d8f73c45bf831c418f219ea3b1fcf42630a090c4145e4a65  104 bytes  936 us
+#  abitcoinlove <= abitcoinlove::get            {"":"abitcoinlove"}
+>> Account: abitcoinlove , Username: stephen , Bio: male , Age: 29
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+fongdeMBP:newapp1 fong$ 
+fongdeMBP:newapp1 fong$  cleos -u 'http://jungle.cryptolions.io:18888' push action abitcoinlove get '['theetherlove']' -p abitcoinlove
+
+executed transaction: 85d0ac2655901a346992bb8e984d875a724124aca9c162a0cfb33a0cfbfbcb04  104 bytes  358 us
+#  abitcoinlove <= abitcoinlove::get            {"":"theetherlove"}
+>> Account: theetherlove , Username: malidyn , Bio: female , Age: 39
+warning: transaction executed locally, but may not be confirmed by the network yet    ] 
+
+
+fongdeMBP:eosDapp fong$ cleos -u 'http://jungle.cryptolions.io:18888'  get account abitcoinlove
+permissions: 
+     owner     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+        active     1:    1 EOS7VFyiwhHSxWRnmJREu4A4m2ur5yuYGLeTNhAU8E2udCWEo6siP
+memory: 
+     quota:     429.3 KiB    used:     149.9 KiB  
+
+net bandwidth: 
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             19.88 KiB  
+     available:        18.26 MiB  
+     limit:            18.28 MiB  
+
+cpu bandwidth:
+     staked:        100.0000 EOS           (total stake delegated from account to self)
+     delegated:       0.0000 EOS           (total staked delegated to account from others)
+     used:             21.32 ms   
+     available:        3.629 sec  
+     limit:             3.65 sec  
+
+EOS balances: 
+     liquid:          477.8000 EOS
+     staked:          200.0000 EOS
+     unstaking:         0.0000 EOS
+     total:           677.8000 EOS
+
+producers:     <not voted>
