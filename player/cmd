@@ -1,0 +1,11 @@
+cleos wallet unlock -n main --password $(cat /xxxxx/main_wallet_password.txt)
+
+eosiocpp -g player.abi Players.cpp 
+eosiocpp -o player.wast Players.cpp
+cleos -u 'https://api.eosnewyork.io' set contract yourtwlvname ../player -p yourtwlvname@active
+
+cleos -u 'https://api.eosnewyork.io' push action yourtwlvname add '['yourtwlvname', 'yourname']' -p yourtwlvname@active
+cleos -u 'https://api.eosnewyork.io' push action yourtwlvname getplayer '['yourtwlvname']' -p yourtwlvname@active
+cleos -u 'https://api.eosnewyork.io' push action yourtwlvname update '['yourtwlvname', 3, 55, 99]' -p yourtwlvname@active
+
+cleos -u 'https://api.eosnewyork.io' get table yourtwlvname  yourtwlvname  player
