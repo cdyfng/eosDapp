@@ -22,3 +22,6 @@ cleos -u 'https://api.eosnewyork.io'  push action $eosname1  findbyage '["'$eosn
 sleep 10s
 cleos -u 'https://api.eosnewyork.io'  push action $eosname1  erase '["'$eosname1'"]' -p $eosname1@active
 sleep 1s&&cleos -u 'https://api.eosnewyork.io' get table $eosname1  $eosname1 peopletable
+
+#make sure the code below excuted before other account upsert data
+#cleos -u 'https://api.eosnewyork.io' set account permission nameXXX active '{"threshold": 1, "keys":[{"key":"KEYXXXXX", "weight":1}], "accounts":[{"permission":{"actor":"nameXXX","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p nameXXX
