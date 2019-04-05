@@ -1,4 +1,5 @@
-#include <eosiolib/eosio.hpp>
+#include <eosio/eosio.hpp>
+//#include <eosio/asset.hpp>
 
 using namespace eosio;
 
@@ -12,7 +13,8 @@ public:
   [[eosio::action]]
   void upsert(name user, std::string first_name, std::string last_name, uint64_t age, std::string street, std::string city, std::string state) {
     require_auth( user );
-    address_index addresses(_code, _code.value);
+    //address_index addresses(_code, _code.value);
+    address_index addresses(get_first_receiver(), get_first_receiver().value);
     auto iterator = addresses.find(user.value);
     if( iterator == addresses.end() )
     {
@@ -46,10 +48,12 @@ public:
   void erase(name user) {
     require_auth(user);
 
-    address_index addresses(_self, _code.value);
+    //address_index addresses(_self, _code.value);
+    address_index addresses(get_first_receiver(), get_first_receiver().value);
 
     auto iterator = addresses.find(user.value);
-    eosio_assert(iterator != addresses.end(), "Record does not exist");
+    //eosio_assert(iterator != addresses.end(), "Record does not exist");
+    check(iterator != addresses.end(), "Record does not exist");
     addresses.erase(iterator);
     send_summary(user, " successfully erased record from addressbook");
   }
@@ -58,14 +62,14 @@ public:
   void findbyage(name user, uint64_t age) {
    require_auth(user); 
    
-   address_index addresses(_self, _code.value);
+   //address_index addresses(_self, _code.value);
+   address_index addresses(get_first_receiver(), get_first_receiver().value);
    
    auto age_index = addresses.get_index<"byage"_n>();
    auto itr = age_index.find(age);
-   eosio_assert(itr != age_index.end(), "Yes, we have someone with that age");
+   //eosio_assert(itr != age_index.end(), "Yes, we have someone with that age");
+   check(itr != age_index.end(), "Yes, we have someone with that age");
   }
-
-
 
 private:
   struct [[eosio::table]] person {
